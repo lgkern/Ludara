@@ -1,0 +1,189 @@
+# depslib dependency file v1.0
+1334590542 source:c:\users\guilherme\desktop\pratica 4 fps\src\main.cpp
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	<al/alut.h>
+
+976674172 c:\users\guilherme\desktop\pratica 4 fps\codeblocks\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1307692032 c:\users\guilherme\desktop\pratica 4 fps\codeblocks\include\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1254353242 c:\users\guilherme\desktop\pratica 4 fps\codeblocks\include\gl\gl.h
+
+1254353242 c:\users\guilherme\desktop\pratica 4 fps\codeblocks\include\gl\glu.h
+	<GL/gl.h>
+
+1334588768 c:\users\guilherme\desktop\pratica 4 fps\codeblocks\include\al\alut.h
+	<al/alc.h>
+	<al/al.h>
+	<OpenAL/alc.h>
+	<OpenAL/al.h>
+	<AL/al.h>
+	<AL/alc.h>
+
+1176490968 c:\users\guilherme\desktop\pratica 4 fps\codeblocks\include\al\alc.h
+
+1165602658 c:\users\guilherme\desktop\pratica 4 fps\codeblocks\include\al\al.h
+
+1150220762 source:c:\users\guilherme\desktop\pratica 4 fps\src\bitmap.c
+	"bitmap.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1032704640 c:\users\guilherme\desktop\pratica 4 fps\src\bitmap.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+1150220762 source:c:\users\guilherme\desktop\html\pratica4_arquivos\src\bitmap.c
+	"bitmap.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1032704640 c:\users\guilherme\desktop\html\pratica4_arquivos\src\bitmap.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+976674172 c:\users\guilherme\desktop\html\pratica4_arquivos\codeblocks\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1254353242 c:\users\guilherme\desktop\html\pratica4_arquivos\codeblocks\include\gl\gl.h
+
+1254353242 c:\users\guilherme\desktop\html\pratica4_arquivos\codeblocks\include\gl\glu.h
+	<GL/gl.h>
+
+1150220762 source:e:\documentos\ufrgs\fcg\fcg-3\src\bitmap.c
+	"bitmap.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1032704640 e:\documentos\ufrgs\fcg\fcg-3\src\bitmap.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+976674172 e:\documentos\ufrgs\fcg\fcg-3\codeblocks\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1254353242 e:\documentos\ufrgs\fcg\fcg-3\codeblocks\include\gl\gl.h
+
+1254353242 e:\documentos\ufrgs\fcg\fcg-3\codeblocks\include\gl\glu.h
+	<GL/gl.h>
+
+1368063770 source:e:\documentos\ufrgs\fcg\fcg-3\src\main.cpp
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	<al/alut.h>
+	"bitmap.h"
+
+1334588768 e:\documentos\ufrgs\fcg\fcg-3\codeblocks\include\al\alut.h
+	<al/alc.h>
+	<al/al.h>
+	<OpenAL/alc.h>
+	<OpenAL/al.h>
+	<AL/al.h>
+	<AL/alc.h>
+
+1176490968 e:\documentos\ufrgs\fcg\fcg-3\codeblocks\include\al\alc.h
+
+1165602658 e:\documentos\ufrgs\fcg\fcg-3\codeblocks\include\al\al.h
+
+1150220762 source:e:\ufrgs\repositorios\ludara\src\bitmap.c
+	"bitmap.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1032704640 e:\ufrgs\repositorios\ludara\src\bitmap.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+976674172 e:\ufrgs\repositorios\ludara\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1254353242 e:\ufrgs\repositorios\ludara\include\gl\gl.h
+
+1254353242 e:\ufrgs\repositorios\ludara\include\gl\glu.h
+	<GL/gl.h>
+
+1370787347 source:e:\ufrgs\repositorios\ludara\src\main.cpp
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	<al/alut.h>
+	"bitmap.h"
+	"input.h"
+	"dragon.h"
+
+1334588768 e:\ufrgs\repositorios\ludara\include\al\alut.h
+	<al/alc.h>
+	<al/al.h>
+	<OpenAL/alc.h>
+	<OpenAL/al.h>
+	<AL/al.h>
+	<AL/alc.h>
+
+1176490968 e:\ufrgs\repositorios\ludara\include\al\alc.h
+
+1165602658 e:\ufrgs\repositorios\ludara\include\al\al.h
+
+1370787156 e:\ufrgs\repositorios\ludara\include\input.h
+	"dragon.h"
+
+1370787241 source:e:\ufrgs\repositorios\ludara\src\dragon.cpp
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	<al/alut.h>
+	"dragon.h"
+
+1370786231 e:\ufrgs\repositorios\ludara\include\dragon.h
+
+1370786849 source:e:\ufrgs\repositorios\ludara\src\input.cpp
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	<al/alut.h>
+	"input.h"
+	"dragon.h"
+
