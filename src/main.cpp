@@ -2,8 +2,10 @@
 Implementa a movimentação simples de uma camera em primeira pessoa para um personagem que anda
 sobre um plano.
 */
-
+#ifdef WIN32
 #include <windows.h>
+#endif
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -569,7 +571,9 @@ void mainRender() {
 	renderScene();
 	glFlush();
 	glutPostRedisplay();
+#ifdef WIN32
 	Sleep(30);
+#endif
 }
 
 

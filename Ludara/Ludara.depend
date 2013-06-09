@@ -134,8 +134,9 @@
 1254353242 e:\ufrgs\repositorios\ludara\include\gl\glu.h
 	<GL/gl.h>
 
-1370787347 source:e:\ufrgs\repositorios\ludara\src\main.cpp
+1370792803 source:e:\ufrgs\repositorios\ludara\src\main.cpp
 	<windows.h>
+	<unistd.h>
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -162,7 +163,7 @@
 1370787156 e:\ufrgs\repositorios\ludara\include\input.h
 	"dragon.h"
 
-1370787241 source:e:\ufrgs\repositorios\ludara\src\dragon.cpp
+1370787376 source:e:\ufrgs\repositorios\ludara\src\dragon.cpp
 	<windows.h>
 	<stdio.h>
 	<stdlib.h>
