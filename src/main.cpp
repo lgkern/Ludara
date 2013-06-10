@@ -76,45 +76,6 @@ int mainWindowId = 0;
 
 double xOffset = -1.9;
 double yOffset = -1.3;
-/*int mouseCurrentX = 0;
-int mouseCurrentY = 0;
-int mouseLastX = 0;
-int mouseLastY = 0;
-int mouseDeltaX = 0;
-int mouseDeltaY = 0;
-
-float mouseSensitivity = 1.0f;
-float roty = 0.0f;
-float rotx = 90.0f;
-
-bool rightPressed = false;
-bool leftPressed = false;
-bool upPressed = false;
-bool downPressed = false;
-int running = 0;
-bool spacePressed = false;
-int crouch = false;
-bool jumping = false;
-bool jumpingUp = false;
-
-bool started = false;
-
-float speedX = 0.0f;
-float speedY = 0.0f;
-float speedZ = 0.0f;
-
-float posX = 0.0f;
-float posY = 0.4f;
-float posZ = 1.0f;
-
-float newPosX = 0.0f;
-float newPosY = 0.4f;
-float newPosZ = 1.0f;
-*/
-/*
-variavel auxiliar pra dar variação na altura do ponto de vista ao andar.
-*/
-float headPosAux = 0.0f;
 
 float maxSpeed = 0.25f;
 
@@ -252,7 +213,6 @@ void mainInit() {
 	setViewport(0, windowWidth, 0, windowHeight);
 
 	initSound();
-
 }
 
 /**
@@ -282,9 +242,8 @@ void initSound() {
 
 	alutLoadWAVFile("..\\res\\Footsteps.wav",&format,&data,&size,&freq,false);
     alBufferData(buffer[0],format,data,size,freq);
-    //alutUnloadWAV(format,data,size,freq);
 
-	alGetError(); /* clear error */
+	alGetError();
     alGenSources(NUM_SOURCES, source);
 
     if(alGetError() != AL_NO_ERROR)
@@ -329,28 +288,8 @@ GLuint TexObj1;
 
 void load_floor(void)
 {
-  BitmapBits1 = LoadDIBitmap("..\\res\\grass.bmp", &BitmapInfo1);
-
-  glGenTextures(1, &TexObj1);
-  glEnable(GL_TEXTURE_2D);
-  gluBuild2DMipmaps(GL_TEXTURE_2D,3,32,32,GL_RGB,GL_UNSIGNED_BYTE, &TexObj1);
-  glBindTexture(GL_TEXTURE_2D, TexObj1);
-  glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // must set to 1 for compact data
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-  glTexImage2D(GL_TEXTURE_2D,
-    0,                // mipmap level
-    GL_RGB,             // internal format
-    BitmapInfo1->bmiHeader.biWidth,  // width
-    BitmapInfo1->bmiHeader.biHeight, // height
-    0,                // border
-    GL_BGR_EXT,           // data format  (NOTE: Bitmap's format is BGR!!!!)
-    GL_UNSIGNED_BYTE,       // element per pixel
-    BitmapBits1);          // data
-
-    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
- }
+    return;
+}
 
 BITMAPINFO *BitmapInfo2; /* Bitmap information */
 GLubyte    *BitmapBits2; /* Bitmap data */
@@ -358,32 +297,7 @@ GLuint TexObj2;
 
 void load_wall(void)
 {
-  BitmapBits2 = LoadDIBitmap("..\\res\\wall.bmp", &BitmapInfo2);
-
-  glGenTextures(1, &TexObj2);
-  glEnable(GL_TEXTURE_2D);
-  gluBuild2DMipmaps(GL_TEXTURE_2D,3,32,32,GL_RGB,GL_UNSIGNED_BYTE, &TexObj2);
-  glBindTexture(GL_TEXTURE_2D, TexObj2);
-  glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // must set to 1 for compact data
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-  glTexImage2D(GL_TEXTURE_2D,
-    0,                // mipmap level
-    GL_RGB,             // internal format
-    BitmapInfo2->bmiHeader.biWidth,  // width
-    BitmapInfo2->bmiHeader.biHeight, // height
-    0,                // border
-    GL_BGR_EXT,           // data format  (NOTE: Bitmap's format is BGR!!!!)
-    GL_UNSIGNED_BYTE,       // element per pixel
-    BitmapBits2);          // data
-
-
-    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-
-
+    return;
 }
 
 void renderFloor() {
@@ -408,57 +322,6 @@ void renderFloor() {
 	float textureScaleX = 100.0;
 	float textureScaleY = 100.0;
 
-    load_wall();
-
-    glBegin(GL_QUADS);
-        glTexCoord2f(textureScaleX, 0.0f);
-		glVertex3f(-planeSize, 0.0f, planeSize);
-		glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(planeSize, 0.0f, planeSize);
-		glTexCoord2f(0.0f, textureScaleX);
-		glVertex3f(planeSize, 1.0f, planeSize);
-		glTexCoord2f(textureScaleX, textureScaleX);
-		glVertex3f(-planeSize, 1.0f, planeSize);
-    glEnd();
-
-    glBegin(GL_QUADS);
-        glTexCoord2f(textureScaleX, 0.0f);
-		glVertex3f(planeSize, 0.0f, planeSize);
-		glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(planeSize, 0.0f, -planeSize);
-		glTexCoord2f(0.0f, textureScaleX);
-		glVertex3f(planeSize, 1.0f, -planeSize);
-		glTexCoord2f(textureScaleX, textureScaleX);
-		glVertex3f(planeSize, 1.0f, planeSize);
-    glEnd();
-
-    glBegin(GL_QUADS);
-        glTexCoord2f(textureScaleX, 0.0f);
-		glVertex3f(planeSize, 0.0f, -planeSize);
-		glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(-planeSize, 0.0f, -planeSize);
-		glTexCoord2f(0.0f, textureScaleX);
-		glVertex3f(-planeSize, 1.0f, -planeSize);
-		glTexCoord2f(textureScaleX, textureScaleX);
-		glVertex3f(planeSize, 1.0f, -planeSize);
-    glEnd();
-
-    glBegin(GL_QUADS);
-        glTexCoord2f(textureScaleX, 0.0f);
-		glVertex3f(-planeSize, 0.0f, -planeSize);
-		glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(-planeSize, 0.0f, planeSize);
-		glTexCoord2f(0.0f, textureScaleX);
-		glVertex3f(-planeSize, 1.0f, planeSize);
-		glTexCoord2f(textureScaleX, textureScaleX);
-		glVertex3f(-planeSize, 1.0f, -planeSize);
-    glEnd();
-
-    load_floor();
-
-    //glBindTexture(GL_TEXTURE_2D, TexObj1);// texture[1]);
-
-
 	glBegin(GL_QUADS);
 		glTexCoord2f(textureScaleX, 0.0f);   // coords for the texture
 		glVertex3f(-planeSize, 0.0f, planeSize);
@@ -472,23 +335,9 @@ void renderFloor() {
 		glTexCoord2f(textureScaleX, textureScaleY);  // coords for the texture
 		glVertex3f(-planeSize, 0.0f, -planeSize);
 	glEnd();
-
-	//load_grass();
-	 //glBindTexture(GL_TEXTURE_2D, TexObj2); //texture[0]);
-
 	glDisable(GL_TEXTURE_2D);
 	glColor4f(0.8f,0.8f,0.8f,1.0f);
-	/*glBegin(GL_LINES);
-	for (int i = 0; i <= 10; i++) {
-		glVertex3f(-planeSize, 0.0f, -planeSize + i*(2*planeSize)/10.0f);
-		glVertex3f(planeSize, 0.0f, -planeSize + i*(2*planeSize)/10.0f);
-	}
-	for (int i = 0; i <= 10; i++) {
-		glVertex3f(-planeSize + i*(2*planeSize)/10.0f, 0.0f, -planeSize);
-		glVertex3f(-planeSize + i*(2*planeSize)/10.0f, 0.0f, planeSize);
-	}
-	glEnd();
-*/
+
 	glPopMatrix();
 }
 
@@ -529,40 +378,8 @@ void onKeyUpWrapper(unsigned char key, int x, int y) {
 
 void colisionCheck()
 {
-    //printf("Colision check\n");
-    //printf("x:%f z:%f\n",newPosX,newPosZ);
     return;
-    /*if(std::abs(std::abs(newPosX) - planeSize) > MIN_DISTANCE)
-    {
-      //  printf("x ok %f \t",newPosX);
-        posX = newPosX;
-    }
-    if(std::abs(std::abs(newPosY) - planeSize) > MIN_DISTANCE)
-    {
-  //      printf("y ok %f \t",newPosY);
-        posY = newPosY;
-    }
-    if(std::abs(std::abs(newPosZ) - planeSize) > MIN_DISTANCE)
-    {
-      //  printf("z ok %f ",newPosZ);
-        posZ = newPosZ;
-    }
-
-    //printf("\n");
-
-        newPosX = posX;
-        newPosY = posY;
-        newPosZ = posZ;
-*/
 }
-
-/*
-void mainCreateMenu() {
-	glutCreateMenu(mainHandleMouseRightButtonMenuEvent);
-	glutAddMenuEntry("Quit", 1);
-	glutAttachMenu(GLUT_RIGHT_BUTTON);
-}
-*/
 /**
 Render scene
 */

@@ -15,6 +15,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="../include" />
+					<Add directory="../src" />
 				</Compiler>
 				<Linker>
 					<Add library="..\lib\OpenGL32.Lib" />
@@ -54,10 +55,14 @@
 			<Add library="..\lib\EFX-Util.lib" />
 			<Add library="..\lib\alut.lib" />
 		</Linker>
+		<Unit filename="../include/dragon.h" />
+		<Unit filename="../include/input.h" />
 		<Unit filename="../src/bitmap.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../src/bitmap.h" />
+		<Unit filename="../src/dragon.cpp" />
+		<Unit filename="../src/input.cpp" />
 		<Unit filename="../src/main.cpp" />
 		<Extensions>
 			<code_completion />
