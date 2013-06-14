@@ -1,0 +1,22 @@
+#
+# boar_[1]_Stand_614.mtl
+#
+
+newmtl BoarSkinCrimson_Dbl
+illum 2
+Kd 1.000000 1.000000 1.000000
+Ka 0.250000 0.250000 0.250000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Creature\Boar\BoarSkinCrimson.tga
+
+newmtl BoarSkinCrimson
+illum 2
+Kd 1.000000 1.000000 1.000000
+Ka 0.250000 0.250000 0.250000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Creature\Boar\BoarSkinCrimson.tga
+
