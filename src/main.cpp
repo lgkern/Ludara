@@ -14,7 +14,7 @@ sobre um plano.
 #include <gl/glut.h>
 
 //openal (sound lib)
-#include <al/alut.h>
+//#include <al/alut.h>
 
 //bitmap class to load bitmaps for textures
 #include "bitmap.h"
@@ -84,28 +84,6 @@ float planeSize = 100.0f;
 
 Dragon* myDragon;
 Input* baseInput;
-
-
-
-// more sound stuff (position, speed and orientation of the listener)
-ALfloat listenerPos[]={0.0,0.0,4.0};
-ALfloat listenerVel[]={0.0,0.0,0.0};
-ALfloat listenerOri[]={0.0,0.0,1.0,
-						0.0,1.0,0.0};
-
-// now the position and speed of the sound source
-ALfloat source0Pos[]={ -2.0, 0.0, 0.0};
-ALfloat source0Vel[]={ 0.0, 0.0, 0.0};
-
-// buffers for openal stuff
-ALuint  buffer[NUM_BUFFERS];
-ALuint  source[NUM_SOURCES];
-ALuint  environment[NUM_ENVIRONMENTS];
-ALsizei size,freq;
-ALenum  format;
-ALvoid  *data;
-
-
 
 // parte de código extraído de "texture.c" por Michael Sweet (OpenGL SuperBible)
 // texture buffers and stuff
@@ -188,14 +166,6 @@ void updateCam() {
            myDragon->getPosY() + cos(myDragon->getRotX()*PI/180),
            myDragon->getPosZ() - cos(myDragon->getRotY()*PI/180),
 		0.0,1.0,0.0);
-
-	listenerPos[0] = myDragon->getPosX();
-	listenerPos[1] = myDragon->getPosY();
-	listenerPos[2] = myDragon->getPosZ();
-
-	source0Pos[0] = myDragon->getPosX();
-	source0Pos[1] = myDragon->getPosY();
-	source0Pos[2] = myDragon->getPosZ();
 }
 
 void setViewport(GLint left, GLint right, GLint bottom, GLint top) {
@@ -212,71 +182,8 @@ void mainInit() {
 	setWindow();
 	setViewport(0, windowWidth, 0, windowHeight);
 
-	initSound();
 }
 
-/**
-Initialize openal and check for errors
-*/
-void initSound() {
-
-	printf("Initializing OpenAl \n");
-
-	// Init openAL
-	alutInit(0, NULL);
-
-	alGetError(); // clear any error messages
-
-    // Generate buffers, or else no sound will happen!
-    alGenBuffers(NUM_BUFFERS, buffer);
-
-    if(alGetError() != AL_NO_ERROR)
-    {
-        printf("- Error creating buffers !!\n");
-        exit(1);
-    }
-    else
-    {
-        printf("init() - No errors yet.\n");
-    }
-
-	alutLoadWAVFile("..\\res\\Footsteps.wav",&format,&data,&size,&freq,false);
-    alBufferData(buffer[0],format,data,size,freq);
-
-	alGetError();
-    alGenSources(NUM_SOURCES, source);
-
-    if(alGetError() != AL_NO_ERROR)
-    {
-        printf("- Error creating sources !!\n");
-        exit(2);
-    }
-    else
-    {
-        printf("init - no errors after alGenSources\n");
-    }
-
-	listenerPos[0] = myDragon->getPosX();
-	listenerPos[1] = myDragon->getPosY();
-	listenerPos[2] = myDragon->getPosZ();
-
-	source0Pos[0] = myDragon->getPosX();
-	source0Pos[1] = myDragon->getPosY();
-	source0Pos[2] = myDragon->getPosZ();
-
-	alListenerfv(AL_POSITION,listenerPos);
-    alListenerfv(AL_VELOCITY,listenerVel);
-    alListenerfv(AL_ORIENTATION,listenerOri);
-
-	alSourcef(source[0], AL_PITCH, 1.0f);
-    alSourcef(source[0], AL_GAIN, 1.0f);
-    alSourcefv(source[0], AL_POSITION, source0Pos);
-    alSourcefv(source[0], AL_VELOCITY, source0Vel);
-    alSourcei(source[0], AL_BUFFER,buffer[0]);
-    alSourcei(source[0], AL_LOOPING, AL_TRUE);
-
-	printf("Sound ok! \n\n");
-}
 
 /**
 Initialize the texture
@@ -337,6 +244,16 @@ void renderFloor() {
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 	glColor4f(0.8f,0.8f,0.8f,1.0f);
+	glBegin(GL_LINES);
+	for (int i = 0; i <= 10; i++) {
+		glVertex3f(-planeSize, 0.0f, -planeSize + i*(2*planeSize)/10.0f);
+		glVertex3f(planeSize, 0.0f, -planeSize + i*(2*planeSize)/10.0f);
+	}
+	for (int i = 0; i <= 10; i++) {
+		glVertex3f(-planeSize + i*(2*planeSize)/10.0f, 0.0f, -planeSize);
+		glVertex3f(-planeSize + i*(2*planeSize)/10.0f, 0.0f, planeSize);
+	}
+	glEnd();
 
 	glPopMatrix();
 }
@@ -345,6 +262,7 @@ void renderScene() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	updateCam();
+	baseInput->drawElements();
 	renderFloor();
 }
 
@@ -388,9 +306,9 @@ void mainRender() {
 	renderScene();
 	glFlush();
 	glutPostRedisplay();
-#ifdef WIN32
-	Sleep(30);
-#endif
+
+	usleep(30000);
+
 }
 
 
@@ -425,7 +343,7 @@ int main(int argc, char **argv) {
 	/**
 	Store main window id so that glui can send it redisplay events
 	*/
-	mainWindowId = glutCreateWindow("FPS");
+	mainWindowId = glutCreateWindow("Ludara");
     //glutFullScreen();
 	glutDisplayFunc(mainRender);
 
@@ -446,11 +364,6 @@ int main(int argc, char **argv) {
     ShowCursor(false);
 
 	mainInit();
-
-	/**
-	Create GLUT mouse button menus
-	*/
-	//mainCreateMenu();
 
 	glutMainLoop();
 

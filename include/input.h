@@ -38,6 +38,7 @@ public:
     void onKeyUp(unsigned char key, int x, int y);
     void mouseControl();
     void updateState();
+    void drawElements();
 private:
 };
 

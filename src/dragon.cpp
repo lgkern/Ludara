@@ -44,7 +44,7 @@ void Dragon::updateDirection()
     this->lookX = this->posX + sin(this->rotY*PI/180);
     this->lookY = this->posY + cos(this->rotX*PI/180);
     this->lookZ = this->posZ - cos(this->rotY*PI/180);
-    printf("%f %f %f    %f %f\n",lookX, lookY, lookZ, rotX, rotY);
+    //printf("%f %f %f\n",posX, posY, posZ);
 }
 
 void Dragon::rotateHead(float xAngle, float yAngle)
@@ -94,10 +94,21 @@ void Dragon::strafeRight()
 void Dragon::flyUp()
 {
 
-    posY += 1.0f;
+    posY += 0.1f;
     printf("%f\n",posY);
 }
 void Dragon::flyDown()
 {
-    posY -= 1.0f;
+    posY -= 0.1f;
+    printf("%f\n",posY);
 }
+
+void Dragon::draw()
+{
+    glPushMatrix();
+        glColor3f(1.0, 1.0, 1.0);
+        glTranslatef(1.0f,1.0f,1.0f);
+        glutSolidTeapot(1.0);
+    glPopMatrix();
+}
+
