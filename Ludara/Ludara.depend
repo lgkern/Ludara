@@ -188,3 +188,77 @@
 	"input.h"
 	"dragon.h"
 
+1372866751 source:x:\git\ludara\src\bitmap.c
+	"bitmap.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1372866751 x:\git\ludara\src\bitmap.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+1372866741 x:\git\ludara\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1372866740 x:\git\ludara\include\gl\gl.h
+
+1372866741 x:\git\ludara\include\gl\glu.h
+	<GL/gl.h>
+
+1372875311 source:x:\git\ludara\src\dragon.cpp
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	<al/alut.h>
+	"dragon.h"
+
+1372866740 x:\git\ludara\include\al\alut.h
+	<al/alc.h>
+	<al/al.h>
+	<OpenAL/alc.h>
+	<OpenAL/al.h>
+	<AL/al.h>
+	<AL/alc.h>
+
+1372866740 x:\git\ludara\include\al\alc.h
+
+1372866740 x:\git\ludara\include\al\al.h
+
+1372872218 x:\git\ludara\include\dragon.h
+
+1372875403 source:x:\git\ludara\src\input.cpp
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	<al/alut.h>
+	"input.h"
+	"dragon.h"
+
+1372870735 x:\git\ludara\include\input.h
+	"dragon.h"
+
+1372873251 source:x:\git\ludara\src\main.cpp
+	<windows.h>
+	<unistd.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	"bitmap.h"
+	"input.h"
+	"dragon.h"
+

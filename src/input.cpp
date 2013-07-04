@@ -60,6 +60,8 @@ void Input::onMouseMove(int x, int y) {
 	mouseLastX = x;
 	mouseLastY = y;
 
+    printf("Mouse x y: %d %d \n", x, y);
+
    // mouseControl();
 
 	glutPostRedisplay();
@@ -73,8 +75,11 @@ void Input::onMousePassiveMove(int x, int y) {
     mouseDeltaY = mouseLastY - y;
 	mouseLastX = x;
 	mouseLastY = y;
+
+	printf("Mouse x y: %d %d \n", x, y);
    // if(started)
    //     mouseControl();
+   glutPostRedisplay();
 }
 
 /**
@@ -198,10 +203,16 @@ void Input::updateState() {
     {
         currentDragon->flyUp();
     }
-    if(spacePressed)
+    if(fallPressed)
     {
         currentDragon->flyDown();
     }
 }
+
+void Input::drawElements()
+{
+    currentDragon->draw();
+}
+
 
 

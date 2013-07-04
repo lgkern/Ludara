@@ -7,8 +7,8 @@ class Dragon
     float speedY = 0.0f;
     float speedZ = 0.0f;
 
-    float posX = 0.0f;
-    float posY = 10.0f;
+    float posX = 1.0f;
+    float posY = 1.0f;
     float posZ = 1.0f;
 
     float rotX = 90.0f;
@@ -38,6 +38,7 @@ public:
     void strafeRight();
     void flyUp();
     void flyDown();
+    void draw();
 
 private:
     void rotateX(float);
