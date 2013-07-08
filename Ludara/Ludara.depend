@@ -162,7 +162,7 @@
 1372963074 e:\ufrgs\repositorios\ludara\include\input.h
 	"dragon.h"
 
-1372965358 source:e:\ufrgs\repositorios\ludara\src\dragon.cpp
+1373311285 source:e:\ufrgs\repositorios\ludara\src\dragon.cpp
 	<windows.h>
 	<stdio.h>
 	<stdlib.h>
@@ -173,7 +173,7 @@
 	<al/alut.h>
 	"dragon.h"
 
-1372962477 e:\ufrgs\repositorios\ludara\include\dragon.h
+1373017345 e:\ufrgs\repositorios\ludara\include\dragon.h
 
 1372965192 source:e:\ufrgs\repositorios\ludara\src\input.cpp
 	<windows.h>

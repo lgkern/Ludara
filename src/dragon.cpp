@@ -44,13 +44,9 @@ void Dragon::updateDirection()
     this->lookX = this->posX + sin(this->rotY*PI/180);
     this->lookY = this->posY + cos(this->rotX*PI/180);
     this->lookZ = this->posZ - cos(this->rotY*PI/180);
-<<<<<<< HEAD
     //printf("%f %f %f\n",posX, posY, posZ);
-=======
-
    // posX + sin(roty*PI/180),posY + posYOffset + 0.025 * std::abs(sin(headPosAux*PI/180)) + cos(rotx*PI/180),posZ -cos(roty*PI/180),
    // printf("%f %f %f\n",lookX, lookY, lookZ);
->>>>>>> Fixed movement and added Y-axis movement.
 }
 
 void Dragon::rotateHead(float xAngle, float yAngle)
@@ -107,22 +103,12 @@ void Dragon::flyUp()
 {
 
     posY += 0.1f;
-<<<<<<< HEAD
-    printf("%f\n",posY);
-=======
-    //printf("%f\n",posY);
     this->updateDirection();
->>>>>>> Fixed movement and added Y-axis movement.
 }
 void Dragon::flyDown()
 {
     posY -= 0.1f;
-<<<<<<< HEAD
-    printf("%f\n",posY);
-=======
-    //printf("%f\n",posY);
     this->updateDirection();
->>>>>>> Fixed movement and added Y-axis movement.
 }
 
 void Dragon::draw()

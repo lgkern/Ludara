@@ -42,6 +42,14 @@
 			<Add library="gdi32" />
 			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/lib" />
 		</Linker>
+		<Unit filename="GL.h" />
+		<Unit filename="GLU.h" />
+		<Unit filename="OpenAL32.dll" />
+		<Unit filename="System.cpp" />
+		<Unit filename="System.h" />
+		<Unit filename="alut.dll" />
+		<Unit filename="glut.h" />
+		<Unit filename="glut32.dll" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

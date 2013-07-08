@@ -83,9 +83,6 @@ void Input::onMouseMove(int x, int y) {
 	mouseLastY = y;
 
 	this->mouseControl();
-    //printf("Mouse x y: %d %d \n", x, y);
->>>>>>> Fixed movement and added Y-axis movement.
-
 	glutPostRedisplay();
 }
 
@@ -121,8 +118,6 @@ void Input::onMousePassiveMove(int x, int y) {
 	mouseLastY = y;
 
 	this->mouseControl();
-
->>>>>>> Fixed movement and added Y-axis movement.
    glutPostRedisplay();
 }
 
