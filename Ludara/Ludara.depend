@@ -124,7 +124,7 @@
 	<windows.h>
 	<wingdi.h>
 
-976674172 e:\ufrgs\repositorios\ludara\include\gl\glut.h
+1373017345 e:\ufrgs\repositorios\ludara\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -134,7 +134,7 @@
 1254353242 e:\ufrgs\repositorios\ludara\include\gl\glu.h
 	<GL/gl.h>
 
-1370792803 source:e:\ufrgs\repositorios\ludara\src\main.cpp
+1372962543 source:e:\ufrgs\repositorios\ludara\src\main.cpp
 	<windows.h>
 	<unistd.h>
 	<stdio.h>
@@ -143,7 +143,6 @@
 	<cmath>
 	<iostream>
 	<gl/glut.h>
-	<al/alut.h>
 	"bitmap.h"
 	"input.h"
 	"dragon.h"
@@ -160,10 +159,10 @@
 
 1165602658 e:\ufrgs\repositorios\ludara\include\al\al.h
 
-1370787156 e:\ufrgs\repositorios\ludara\include\input.h
+1372963074 e:\ufrgs\repositorios\ludara\include\input.h
 	"dragon.h"
 
-1370787376 source:e:\ufrgs\repositorios\ludara\src\dragon.cpp
+1372965358 source:e:\ufrgs\repositorios\ludara\src\dragon.cpp
 	<windows.h>
 	<stdio.h>
 	<stdlib.h>
@@ -174,9 +173,9 @@
 	<al/alut.h>
 	"dragon.h"
 
-1370786231 e:\ufrgs\repositorios\ludara\include\dragon.h
+1372962477 e:\ufrgs\repositorios\ludara\include\dragon.h
 
-1370786849 source:e:\ufrgs\repositorios\ludara\src\input.cpp
+1372965192 source:e:\ufrgs\repositorios\ludara\src\input.cpp
 	<windows.h>
 	<stdio.h>
 	<stdlib.h>
@@ -193,8 +192,15 @@
 	<stdio.h>
 	<stdlib.h>
 	<errno.h>
+	"bitmap.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
 
 1372866751 x:\git\ludara\src\bitmap.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
 	<GL/glut.h>
 	<windows.h>
 	<wingdi.h>
@@ -203,10 +209,14 @@
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
 
 1372866740 x:\git\ludara\include\gl\gl.h
 
 1372866741 x:\git\ludara\include\gl\glu.h
+	<GL/gl.h>
 	<GL/gl.h>
 
 1372875311 source:x:\git\ludara\src\dragon.cpp
@@ -219,8 +229,23 @@
 	<gl/glut.h>
 	<al/alut.h>
 	"dragon.h"
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	<al/alut.h>
+	"dragon.h"
 
 1372866740 x:\git\ludara\include\al\alut.h
+	<al/alc.h>
+	<al/al.h>
+	<OpenAL/alc.h>
+	<OpenAL/al.h>
+	<AL/al.h>
+	<AL/alc.h>
 	<al/alc.h>
 	<al/al.h>
 	<OpenAL/alc.h>
@@ -245,6 +270,22 @@
 	<al/alut.h>
 	"input.h"
 	"dragon.h"
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<gl/glut.h>
+	<al/alut.h>
+	"input.h"
+	"dragon.h"
+
+1372875403 D
+
+1372875403 
+
+1372875403 ed movement and added Y-axis movement.
 
 1372870735 x:\git\ludara\include\input.h
 	"dragon.h"

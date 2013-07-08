@@ -26,9 +26,9 @@ public:
     float getPosY() {return posY;}
     float getPosZ() {return posZ;}
 
-    //Maybe obsolete after integrating camera functions
-    float getRotX() {return rotX;}
-    float getRotY() {return rotY;}
+    float getLookX() {return lookX;}
+    float getLookY() {return lookY;}
+    float getLookZ() {return lookZ;}
 
     void rotateHead(float, float);
 

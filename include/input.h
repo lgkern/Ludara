@@ -1,6 +1,8 @@
 #ifndef __INPUT__
 #define __INPUT__
 
+#define MOUSESENSITIVITY 0.5f
+
 #include "dragon.h"
 
 class Input
@@ -12,9 +14,6 @@ class Input
     int mouseLastY = 0;
     int mouseDeltaX = 0;
     int mouseDeltaY = 0;
-
-    float mouseSensitivity = 0.50f;
-
 
     bool rightPressed = false;
     bool leftPressed = false;

@@ -117,9 +117,9 @@ void setWindow() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	gluLookAt(myDragon->getPosX(),myDragon->getPosY(),myDragon->getPosZ(),
-		myDragon->getPosX() + sin(myDragon->getRotY()*PI/180),
-           myDragon->getPosY() + cos(myDragon->getRotX()*PI/180),
-           myDragon->getPosZ() - cos(myDragon->getRotY()*PI/180),
+		myDragon->getLookX(),
+           myDragon->getLookY(),
+           myDragon->getLookZ(),
 		0.0,1.0,0.0);
 }
 
@@ -162,9 +162,9 @@ void updateCam() {
 }*/
 void updateCam() {
 	gluLookAt(myDragon->getPosX(),myDragon->getPosY(),myDragon->getPosZ(),
-		myDragon->getPosX() + sin(myDragon->getRotY()*PI/180),
-           myDragon->getPosY() + cos(myDragon->getRotX()*PI/180),
-           myDragon->getPosZ() - cos(myDragon->getRotY()*PI/180),
+		myDragon->getLookX(),
+        myDragon->getLookY(),
+        myDragon->getLookZ(),
 		0.0,1.0,0.0);
 }
 

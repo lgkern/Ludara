@@ -344,3 +344,68 @@
 
 1165602658 c:\users\aluno\desktop\codeblocks\include\al\al.h
 
+1372957886 source:e:\ufrgs\repositorios\ludara\pratica05\src\3dobject.cpp
+	"3DObject.h"
+	<malloc.h>
+
+1372957886 e:\ufrgs\repositorios\ludara\pratica05\src\3dobject.h
+	<string.h>
+	"glm.h"
+
+1372957886 e:\ufrgs\repositorios\ludara\pratica05\src\glm.h
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<iostream>
+	<GL/glut.h>
+
+1372957885 e:\ufrgs\repositorios\ludara\pratica05\codeblocks\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1372957885 e:\ufrgs\repositorios\ludara\pratica05\codeblocks\include\gl\gl.h
+
+1372957885 e:\ufrgs\repositorios\ludara\pratica05\codeblocks\include\gl\glu.h
+	<GL/gl.h>
+
+1372957886 source:e:\ufrgs\repositorios\ludara\pratica05\src\bitmap.c
+	"bitmap.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1372959230 e:\ufrgs\repositorios\ludara\pratica05\src\bitmap.h
+	<GL/glut.h>
+
+1372957886 source:e:\ufrgs\repositorios\ludara\pratica05\src\glm.cpp
+	<math.h>
+	<cmath>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	"glm.h"
+
+1372957886 source:e:\ufrgs\repositorios\ludara\pratica05\src\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<cmath>
+	<iostream>
+	<GL/glut.h>
+	<unistd.h>
+	"bitmap.h"
+	"ModelAl.h"
+	"3DObject.h"
+
+1372957886 e:\ufrgs\repositorios\ludara\pratica05\src\modelal.h
+	<stdio.h>
+	<string.h>
+	"3DObject.h"
+	"Sphere.h"
+	<vector>
+
+1372957886 e:\ufrgs\repositorios\ludara\pratica05\src\sphere.h
+	<string.h>
+	<GL/glut.h>
+

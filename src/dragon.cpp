@@ -44,7 +44,13 @@ void Dragon::updateDirection()
     this->lookX = this->posX + sin(this->rotY*PI/180);
     this->lookY = this->posY + cos(this->rotX*PI/180);
     this->lookZ = this->posZ - cos(this->rotY*PI/180);
+<<<<<<< HEAD
     //printf("%f %f %f\n",posX, posY, posZ);
+=======
+
+   // posX + sin(roty*PI/180),posY + posYOffset + 0.025 * std::abs(sin(headPosAux*PI/180)) + cos(rotx*PI/180),posZ -cos(roty*PI/180),
+   // printf("%f %f %f\n",lookX, lookY, lookZ);
+>>>>>>> Fixed movement and added Y-axis movement.
 }
 
 void Dragon::rotateHead(float xAngle, float yAngle)
@@ -55,21 +61,25 @@ void Dragon::rotateHead(float xAngle, float yAngle)
 }
 void Dragon::moveForward()
 {
-    speedX = 0.025 * sin(rotY*PI/180) * 5;
-	speedZ = -0.025 * cos(rotY*PI/180) * 5;
+    speedX = 0.25 * sin(rotY*PI/180) * 5;
+	speedZ = -0.25 * cos(rotY*PI/180) * 5;
+	speedY = 0.025 * cos(rotX*PI/180) * 5;
 
 	posX += speedX;
 	posZ += speedZ;
+	posY += speedY;
+	this->updateDirection();
 /// posY += speedY;
 
 }
 void Dragon::moveBackward()
 {
-        speedX = -0.25 * sin(rotY*PI/180) * 5;
-		speedZ = 0.25 * cos(rotY*PI/180) * 5;
+        speedX = -0.025 * sin(rotY*PI/180) * 5;
+		speedZ = 0.025 * cos(rotY*PI/180) * 5;
 
 		posX += (0.5)*speedX * 5;
 		posZ += (0.5)*speedZ * 5;
+		this->updateDirection();
 
 }
 void Dragon::strafeLeft()
@@ -80,6 +90,7 @@ void Dragon::strafeLeft()
 
 		posX += speedX;
 		posZ += speedZ;
+		this->updateDirection();
 }
 void Dragon::strafeRight()
 {
@@ -89,18 +100,29 @@ void Dragon::strafeRight()
 
 		posX += speedX;
         posZ += speedZ;
+        this->updateDirection();
 }
 
 void Dragon::flyUp()
 {
 
     posY += 0.1f;
+<<<<<<< HEAD
     printf("%f\n",posY);
+=======
+    //printf("%f\n",posY);
+    this->updateDirection();
+>>>>>>> Fixed movement and added Y-axis movement.
 }
 void Dragon::flyDown()
 {
     posY -= 0.1f;
+<<<<<<< HEAD
     printf("%f\n",posY);
+=======
+    //printf("%f\n",posY);
+    this->updateDirection();
+>>>>>>> Fixed movement and added Y-axis movement.
 }
 
 void Dragon::draw()

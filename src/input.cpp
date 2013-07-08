@@ -55,14 +55,36 @@ void Input::onMouseButton(int button, int state, int x, int y) {
 Mouse move while button pressed event handler
 */
 void Input::onMouseMove(int x, int y) {
-    mouseDeltaX = mouseLastX - x;
+ /*   mouseDeltaX = mouseLastX - x;
     mouseDeltaY = mouseLastY - y;
 	mouseLastX = x;
 	mouseLastY = y;
 
     printf("Mouse x y: %d %d \n", x, y);
 
+<<<<<<< HEAD
    // mouseControl();
+=======
+   // mouseControl();*/
+
+   	mouseDeltaY += (x - mouseLastX);
+
+	mouseDeltaX -= (y - mouseLastY);
+
+	//if (mouseDeltaX > -128.0) {
+	//	mouseDeltaX = -128.0;
+	//}
+
+	//if (mouseDeltaX < -45.0) {
+	//	mouseDeltaX = -45.0;
+	//}
+
+	mouseLastX = x;
+	mouseLastY = y;
+
+	this->mouseControl();
+    //printf("Mouse x y: %d %d \n", x, y);
+>>>>>>> Fixed movement and added Y-axis movement.
 
 	glutPostRedisplay();
 }
@@ -71,14 +93,36 @@ void Input::onMouseMove(int x, int y) {
 Mouse move with no button pressed event handler
 */
 void Input::onMousePassiveMove(int x, int y) {
-    mouseDeltaX = mouseLastX - x;
+/*    mouseDeltaX = mouseLastX - x;
     mouseDeltaY = mouseLastY - y;
 	mouseLastX = x;
 	mouseLastY = y;
 
 	printf("Mouse x y: %d %d \n", x, y);
    // if(started)
+<<<<<<< HEAD
    //     mouseControl();
+=======
+   //     mouseControl();*/
+//printf("Mouse x y: %d %d \n", x, y);
+   	mouseDeltaY += (x - mouseLastX);
+
+	mouseDeltaX -= (y - mouseLastY);
+
+/*	if (mouseDeltaX < -128.0) {
+		mouseDeltaX = -128.0;
+	}
+
+	if (mouseDeltaX > -45.0) {
+		mouseDeltaX = -45.0;
+	}
+*/
+	mouseLastX = x;
+	mouseLastY = y;
+
+	this->mouseControl();
+
+>>>>>>> Fixed movement and added Y-axis movement.
    glutPostRedisplay();
 }
 
@@ -162,8 +206,8 @@ void Input::onKeyUp(unsigned char key, int x, int y) {
 
 void Input::mouseControl()
 {
-    currentDragon->rotateHead(-mouseDeltaX * mouseSensitivity,mouseDeltaY * mouseSensitivity);
-
+    currentDragon->rotateHead(mouseDeltaX * MOUSESENSITIVITY,mouseDeltaY * MOUSESENSITIVITY);
+    printf("%d,\t%d\n",mouseDeltaX,mouseDeltaY);
 //    SetCursorPos(windowHeight/2,windowWidth/2);
     //SetCursorPos(900/2,1440/2);
 
@@ -178,7 +222,7 @@ void Input::mouseControl()
 
 void Input::updateState() {
 
-   mouseControl();
+   //mouseControl();
 
 	if (upPressed)
     {

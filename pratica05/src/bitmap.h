@@ -35,7 +35,7 @@ extern "C" {
  * to avoid differences in alignment...
  */
 
-#  ifndef WIN32
+//#  ifndef WIN32
 typedef struct                       /**** BMP file header structure ****/
     {
     unsigned short bfType;           /* Magic number for file */
@@ -84,7 +84,7 @@ typedef struct                       /**** Bitmap information structure ****/
     BITMAPINFOHEADER bmiHeader;      /* Image header */
     RGBQUAD          bmiColors[256]; /* Image colormap */
     } BITMAPINFO;
-#  endif /* !WIN32 */
+//#  endif /* !WIN32 */
 
 /*
  * Prototypes...
