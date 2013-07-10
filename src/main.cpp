@@ -58,8 +58,6 @@ void updateState();
 void renderFloor();
 void updateCam();
 void mouseControl();
-void load_grass(void);
-void load_stone(void);
 /**
 Screen dimensions
 */
@@ -85,8 +83,6 @@ float planeSize = 100.0f;
 Dragon* myDragon;
 Input* baseInput;
 
-// parte de código extraído de "texture.c" por Michael Sweet (OpenGL SuperBible)
-// texture buffers and stuff
 int i;                       /* Looping var */
 BITMAPINFO	*info;           /* Bitmap information */
 GLubyte	    *bits;           /* Bitmap RGB pixels */
@@ -107,10 +103,9 @@ GLubyte     temp2;            /* Swapping variable */
 GLenum      type2;            /* Texture type */
 
 
-//Passar para classe Dragon
+
 void setWindow() {
-	//roty = 0.0f;
-    //rotx = 90.0f;
+
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(45.0f,(GLfloat)windowWidth/(GLfloat)windowHeight,0.1f, 100.0f);
@@ -123,43 +118,6 @@ void setWindow() {
 		0.0,1.0,0.0);
 }
 
-/*
-void setWindow() {
-	//roty = 0.0f;
-    //rotx = 90.0f;
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(45.0f,(GLfloat)windowWidth/(GLfloat)windowHeight,0.1f, 100.0f);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	gluLookAt(posX,posY + 0.025 * std::abs(sin(headPosAux*PI/180)),posZ,
-		posX + sin(roty*PI/180),
-           posY + 0.025 * std::abs(sin(headPosAux*PI/180)) + cos(rotx*PI/180),
-           posZ -cos(roty*PI/180),
-		0.0,1.0,0.0);
-}
-*/
-
-/**
-Atualiza a posição e orientação da camera
-*/
-
-/*
-void updateCam() {
-	gluLookAt(posX,posY + 0.025 * std::abs(sin(headPosAux*PI/180)),posZ,
-		posX + sin(roty*PI/180),
-           posY + 0.025 * std::abs(sin(headPosAux*PI/180)) + cos(rotx*PI/180),
-           posZ -cos(roty*PI/180),
-		0.0,1.0,0.0);
-
-	listenerPos[0] = posX;
-	listenerPos[1] = posY;
-	listenerPos[2] = posZ;
-
-	source0Pos[0] = posX;
-	source0Pos[1] = posY;
-	source0Pos[2] = posZ;
-}*/
 void updateCam() {
 	gluLookAt(myDragon->getPosX(),myDragon->getPosY(),myDragon->getPosZ(),
 		myDragon->getLookX(),
@@ -184,28 +142,14 @@ void mainInit() {
 
 }
 
-
-/**
-Initialize the texture
-*/
-
 BITMAPINFO *BitmapInfo1; /* Bitmap information */
 GLubyte    *BitmapBits1; /* Bitmap data */
 GLuint TexObj1;
-
-void load_floor(void)
-{
-    return;
-}
 
 BITMAPINFO *BitmapInfo2; /* Bitmap information */
 GLubyte    *BitmapBits2; /* Bitmap data */
 GLuint TexObj2;
 
-void load_wall(void)
-{
-    return;
-}
 
 void renderFloor() {
 
@@ -331,10 +275,6 @@ void onWindowReshape(int x, int y) {
 Glut idle funtion
 */
 void mainIdle() {
-	/**
-	Set the active window before send an glutPostRedisplay call
-	so it wont be accidently sent to the glui window
-	*/
 	glutSetWindow(mainWindowId);
 	glutPostRedisplay();
 }
@@ -348,25 +288,15 @@ int main(int argc, char **argv) {
 	glutInitWindowSize(windowWidth,windowHeight);
 	glutInitWindowPosition(windowXPos,windowYPos);
 
-	/**
-	Store main window id so that glui can send it redisplay events
-	*/
 	mainWindowId = glutCreateWindow("Ludara");
-    //glutFullScreen();
-	glutDisplayFunc(mainRender);
+  	glutDisplayFunc(mainRender);
 
 	glutReshapeFunc(onWindowReshape);
 
-            /**
-	Register mouse events handlers
-	*/
 	glutMouseFunc(onMouseButtonWrapper);
 	glutMotionFunc(onMouseMoveWrapper);
 	glutPassiveMotionFunc(onMousePassiveMoveWrapper);
 
-	/**
-	Register keyboard events handlers
-	*/
 	glutKeyboardFunc(onKeyDownWrapper);
 	glutKeyboardUpFunc(onKeyUpWrapper);
     ShowCursor(false);

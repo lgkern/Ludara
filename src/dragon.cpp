@@ -13,17 +13,14 @@
 
 #include "dragon.h"
 
+#define MIN_DISTANCE 2.5f
+#define FLY_AMOUNT 0.5f
 
 
 void Dragon::rotateX(float angle)
 {
 
     this->rotX += angle;
-
- //   if(this->rotX < 0.0f)
- //       this->rotX = 0.0f;
- //   if(this->rotX > 180.0f)
- //       this->rotX = 180.0f;
 
     while(this->rotX > 360.0f)
         this->rotX -= 360.0f;
@@ -46,11 +43,6 @@ void Dragon::updateDirection()
     this->lookX = this->posX + sin(this->rotY*PI/180);
     this->lookY = this->posY + cos(this->rotX*PI/180);
     this->lookZ = this->posZ - cos(this->rotY*PI/180);
-
-
-    //printf("%f %f %f\n",posX, posY, posZ);
-   // posX + sin(roty*PI/180),posY + posYOffset + 0.025 * std::abs(sin(headPosAux*PI/180)) + cos(rotx*PI/180),posZ -cos(roty*PI/180),
-   // printf("%f %f %f\n",lookX, lookY, lookZ);
 }
 
 void Dragon::rotateHead(float xAngle, float yAngle)
@@ -63,79 +55,144 @@ void Dragon::moveForward()
 {
     speedX = 0.25 * sin(rotY*PI/180) * 5;
 	speedZ = -0.25 * cos(rotY*PI/180) * 5;
-	speedY = 0.025 * cos(rotX*PI/180) * 5;
+	speedY = 0.25 * cos(rotX*PI/180) * 5;
 
-	posX += speedX;
-	posZ += speedZ;
-	posY += speedY;
+    GLfloat newPosX = posX + speedX;
+	GLfloat newPosZ = posZ + speedZ;
+	GLfloat newPosY = posY + std::abs(posY - lookY)*speedY;
+
+    if(std::abs(std::abs(newPosX) - planeSize) > MIN_DISTANCE)
+    {
+        posX = newPosX;
+    }
+    if(std::abs(std::abs(newPosY) - planeSize) > MIN_DISTANCE)
+    {
+        if(newPosY > MIN_DISTANCE)
+            posY = newPosY;
+    }
+    if(std::abs(std::abs(newPosZ) - planeSize) > MIN_DISTANCE)
+    {
+        posZ = newPosZ;
+    }
+
 	this->updateDirection();
-/// posY += speedY;
-
 }
 void Dragon::moveBackward()
 {
         speedX = -0.025 * sin(rotY*PI/180) * 5;
-		speedZ = 0.025 * cos(rotY*PI/180) * 5;
+        speedZ = 0.025 * cos(rotY*PI/180) * 5;
+        speedY = 0.025 * cos(rotX*PI/180) * 5;
 
-		posX += (0.5)*speedX * 5;
-		posZ += (0.5)*speedZ * 5;
+        GLfloat newPosX = posX + speedX;
+        GLfloat newPosZ = posZ + speedZ;
+        GLfloat newPosY = posY + std::abs(posY - lookY)*speedY;
+
+        if(std::abs(std::abs(newPosX) - planeSize) > MIN_DISTANCE)
+        {
+            posX = newPosX;
+        }
+        if(std::abs(std::abs(newPosY) - planeSize) > MIN_DISTANCE)
+        {
+            if(newPosY > MIN_DISTANCE)
+                posY = newPosY;
+        }
+        if(std::abs(std::abs(newPosZ) - planeSize) > MIN_DISTANCE)
+        {
+            posZ = newPosZ;
+        }
+
 		this->updateDirection();
 
 }
 void Dragon::strafeLeft()
 {
-		speedX = 0.25 * sin((rotY-90.0f)*PI/180);
-		speedZ = -0.25 * cos((rotY-90.0f)*PI/180);
+		speedX = 0.25 * sin((rotY-90.0f)*PI/180) * 5;
+		speedZ = -0.25 * cos((rotY-90.0f)*PI/180) * 5;
 
+        GLfloat newPosX = posX + speedX;
+        GLfloat newPosZ = posZ + speedZ;
 
-		posX += speedX;
-		posZ += speedZ;
+        if(std::abs(std::abs(newPosX) - planeSize) > MIN_DISTANCE)
+        {
+            posX = newPosX;
+        }
+        if(std::abs(std::abs(newPosZ) - planeSize) > MIN_DISTANCE)
+        {
+            posZ = newPosZ;
+        }
+
 		this->updateDirection();
 }
 void Dragon::strafeRight()
 {
 
-		speedX = 0.25 * sin((rotY+90.0f)*PI/180);
-		speedZ = -0.25 * cos((rotY+90.0f)*PI/180);
+		speedX = 0.25 * sin((rotY+90.0f)*PI/180) * 5;
+		speedZ = -0.25 * cos((rotY+90.0f)*PI/180) * 5;
 
-		posX += speedX;
-        posZ += speedZ;
+        GLfloat newPosX = posX + speedX;
+        GLfloat newPosZ = posZ + speedZ;
+
+        if(std::abs(std::abs(newPosX) - planeSize) > MIN_DISTANCE)
+        {
+            posX = newPosX;
+        }
+        if(std::abs(std::abs(newPosZ) - planeSize) > MIN_DISTANCE)
+        {
+            posZ = newPosZ;
+        }
+
         this->updateDirection();
 }
 
 void Dragon::flyUp()
 {
 
-    posY += 0.1f;
+    posY = posY + FLY_AMOUNT;
+
     this->updateDirection();
 }
 void Dragon::flyDown()
 {
-    posY -= 0.1f;
+       GLfloat newPosY = posY - FLY_AMOUNT;
+
+        if(std::abs(std::abs(newPosY) - planeSize) > MIN_DISTANCE)
+        {
+            if(newPosY > MIN_DISTANCE)
+                posY = newPosY;
+        }
     this->updateDirection();
 }
 
 void Dragon::draw()
 {
-    this->collisionRange = 2.5f;
-//    glPushMatrix();
- //       glColor3f(1.0, 1.0, 1.0);
- //       glTranslatef(1.0f,1.0f,1.0f);
- //       glutSolidTeapot(1.0);
- //   glPopMatrix();
     if(projectileUp)
     {
-        this->currentProjectile.posX += this->currentProjectile.directionX/10;
-        this->currentProjectile.posY += this->currentProjectile.directionY/10;
-        this->currentProjectile.posZ += this->currentProjectile.directionZ/10;
+        this->currentProjectile.posX += this->currentProjectile.directionX/2;
+        this->currentProjectile.posY += this->currentProjectile.directionY/2;
+        this->currentProjectile.posZ += this->currentProjectile.directionZ/2;
+
+        if(this->currentProjectile.posY < MIN_DISTANCE || planeSize - this->currentProjectile.posY < MIN_DISTANCE)
+        {
+            projectileUp = false;
+            return;
+        }
+        if(std::abs(std::abs(this->currentProjectile.posX) - planeSize) < MIN_DISTANCE)
+        {
+            projectileUp = false;
+            return;
+        }
+        if(std::abs(std::abs(this->currentProjectile.posZ) - planeSize) < MIN_DISTANCE)
+        {
+            projectileUp = false;
+            return;
+        }
+
         glPushMatrix();
             glTranslatef(this->currentProjectile.posX,this->currentProjectile.posY, this->currentProjectile.posZ);
-           //d glDisable(GL_LIGHTING);
             glEnable(GL_BLEND);
             glColor4f(1.0f, 0.6f, 0.0f, 0.5f);
             glutSolidSphere(1.0, 100, 100);
             glDisable(GL_BLEND);
-          //  glEnable(GL_LIGHTING);
         glPopMatrix();
     }
 }
@@ -154,4 +211,3 @@ void Dragon::attack()
     }
 
 }
-

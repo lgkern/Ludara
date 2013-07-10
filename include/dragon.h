@@ -17,7 +17,7 @@ class Dragon : Object
     float speedZ = 0.0f;
 
     GLfloat posX = 1.0f;
-    GLfloat posY = 1.0f;
+    GLfloat posY = 10.0f;
     GLfloat posZ = 1.0f;
 
     float rotX = 90.0f;
@@ -29,6 +29,8 @@ class Dragon : Object
     GLfloat lookX = 0.0f;
     GLfloat lookY = 0.0f;
     GLfloat lookZ = 0.0f;
+
+    float planeSize = 100.0f;
 
     bool projectileUp = false;
     projectile currentProjectile;

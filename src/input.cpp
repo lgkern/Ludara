@@ -257,15 +257,12 @@ void Input::drawElements()
 
 void Input::addElement(Object* element)
 {
-    this->scenario.push_back(element);
+
 }
 
 bool Input::checkCollision(GLfloat posX,GLfloat posY,GLfloat posZ, GLfloat collisionRange)
 {
-    for(int i = 0; i<this->scenario.size(); i++)
-    {
 
-    }
 }
 
 

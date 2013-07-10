@@ -9,7 +9,6 @@ using namespace std;
 
 class Input
 {
-    vector<Object> scenario;
     Dragon* currentDragon;
     int mouseCurrentX = 0;
     int mouseCurrentY = 0;
