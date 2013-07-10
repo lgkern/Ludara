@@ -1,15 +1,24 @@
 #ifndef __DRAGON__
 #define __DRAGON__
 
-class Dragon
+#include "objects.h"
+
+///turn into class
+typedef struct
+{
+    GLfloat posX, posY, posZ;
+    GLfloat directionX, directionY, directionZ;
+}projectile;
+
+class Dragon : Object
 {
     float speedX = 0.0f;
     float speedY = 0.0f;
     float speedZ = 0.0f;
 
-    float posX = 1.0f;
-    float posY = 1.0f;
-    float posZ = 1.0f;
+    GLfloat posX = 1.0f;
+    GLfloat posY = 1.0f;
+    GLfloat posZ = 1.0f;
 
     float rotX = 90.0f;
     float rotY = 0.0f;
@@ -17,18 +26,21 @@ class Dragon
     float maxSpeed = 10.0f;
     float minSpeed = 1.0f;
 
-    float lookX = 0.0f;
-    float lookY = 0.0f;
-    float lookZ = 0.0f;
+    GLfloat lookX = 0.0f;
+    GLfloat lookY = 0.0f;
+    GLfloat lookZ = 0.0f;
+
+    bool projectileUp = false;
+    projectile currentProjectile;
 
 public:
-    float getPosX() {return posX;}
-    float getPosY() {return posY;}
-    float getPosZ() {return posZ;}
+    GLfloat getPosX() {return posX;}
+    GLfloat getPosY() {return posY;}
+    GLfloat getPosZ() {return posZ;}
 
-    float getLookX() {return lookX;}
-    float getLookY() {return lookY;}
-    float getLookZ() {return lookZ;}
+    GLfloat getLookX() {return lookX;}
+    GLfloat getLookY() {return lookY;}
+    GLfloat getLookZ() {return lookZ;}
 
     void rotateHead(float, float);
 
@@ -39,6 +51,7 @@ public:
     void flyUp();
     void flyDown();
     void draw();
+    void attack();
 
 private:
     void rotateX(float);
@@ -46,5 +59,6 @@ private:
 
     void updateDirection();
 };
+
 
 #endif // __DRAGON__

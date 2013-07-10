@@ -39,6 +39,8 @@ void Input::onMouseButton(int button, int state, int x, int y) {
 	switch(button)
 	{
         case GLUT_LEFT_BUTTON:
+            if(state == GLUT_DOWN)
+                currentDragon->attack();
             break;
         case GLUT_RIGHT_BUTTON:
             break;
@@ -202,7 +204,7 @@ void Input::onKeyUp(unsigned char key, int x, int y) {
 void Input::mouseControl()
 {
     currentDragon->rotateHead(mouseDeltaX * MOUSESENSITIVITY,mouseDeltaY * MOUSESENSITIVITY);
-    printf("%d,\t%d\n",mouseDeltaX,mouseDeltaY);
+//    printf("%d,\t%d\n",mouseDeltaX,mouseDeltaY);
 //    SetCursorPos(windowHeight/2,windowWidth/2);
     //SetCursorPos(900/2,1440/2);
 

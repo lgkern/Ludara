@@ -13,6 +13,8 @@
 
 #include "dragon.h"
 
+
+
 void Dragon::rotateX(float angle)
 {
 
@@ -44,6 +46,8 @@ void Dragon::updateDirection()
     this->lookX = this->posX + sin(this->rotY*PI/180);
     this->lookY = this->posY + cos(this->rotX*PI/180);
     this->lookZ = this->posZ - cos(this->rotY*PI/180);
+
+
     //printf("%f %f %f\n",posX, posY, posZ);
    // posX + sin(roty*PI/180),posY + posYOffset + 0.025 * std::abs(sin(headPosAux*PI/180)) + cos(rotx*PI/180),posZ -cos(roty*PI/180),
    // printf("%f %f %f\n",lookX, lookY, lookZ);
@@ -113,10 +117,40 @@ void Dragon::flyDown()
 
 void Dragon::draw()
 {
-    glPushMatrix();
-        glColor3f(1.0, 1.0, 1.0);
-        glTranslatef(1.0f,1.0f,1.0f);
-        glutSolidTeapot(1.0);
-    glPopMatrix();
+//    glPushMatrix();
+ //       glColor3f(1.0, 1.0, 1.0);
+ //       glTranslatef(1.0f,1.0f,1.0f);
+ //       glutSolidTeapot(1.0);
+ //   glPopMatrix();
+    if(projectileUp)
+    {
+        this->currentProjectile.posX += this->currentProjectile.directionX/10;
+        this->currentProjectile.posY += this->currentProjectile.directionY/10;
+        this->currentProjectile.posZ += this->currentProjectile.directionZ/10;
+        glPushMatrix();
+            glTranslatef(this->currentProjectile.posX,this->currentProjectile.posY, this->currentProjectile.posZ);
+           //d glDisable(GL_LIGHTING);
+            glEnable(GL_BLEND);
+            glColor4f(1.0f, 0.6f, 0.0f, 0.5f);
+            glutSolidSphere(1.0, 100, 100);
+            glDisable(GL_BLEND);
+          //  glEnable(GL_LIGHTING);
+        glPopMatrix();
+    }
+}
+
+void Dragon::attack()
+{
+    //if(!projectileUp)
+    {
+        projectileUp = true;
+        this->currentProjectile.posX = this->posX;
+        this->currentProjectile.posY = this->posY-1.0;
+        this->currentProjectile.posZ = this->posZ;
+        this->currentProjectile.directionX = this->lookX - this->posX;
+        this->currentProjectile.directionY = this->lookY - this->posY;
+        this->currentProjectile.directionZ = this->lookZ - this->posZ;
+    }
+
 }
 

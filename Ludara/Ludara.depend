@@ -134,7 +134,7 @@
 1254353242 e:\ufrgs\repositorios\ludara\include\gl\glu.h
 	<GL/gl.h>
 
-1372962543 source:e:\ufrgs\repositorios\ludara\src\main.cpp
+1373428848 source:e:\ufrgs\repositorios\ludara\src\main.cpp
 	<windows.h>
 	<unistd.h>
 	<stdio.h>
@@ -159,10 +159,10 @@
 
 1165602658 e:\ufrgs\repositorios\ludara\include\al\al.h
 
-1372963074 e:\ufrgs\repositorios\ludara\include\input.h
+1373017345 e:\ufrgs\repositorios\ludara\include\input.h
 	"dragon.h"
 
-1373311285 source:e:\ufrgs\repositorios\ludara\src\dragon.cpp
+1373429464 source:e:\ufrgs\repositorios\ludara\src\dragon.cpp
 	<windows.h>
 	<stdio.h>
 	<stdlib.h>
@@ -173,9 +173,10 @@
 	<al/alut.h>
 	"dragon.h"
 
-1373017345 e:\ufrgs\repositorios\ludara\include\dragon.h
+1373430649 e:\ufrgs\repositorios\ludara\include\dragon.h
+	"objects.h"
 
-1372965192 source:e:\ufrgs\repositorios\ludara\src\input.cpp
+1373429167 source:e:\ufrgs\repositorios\ludara\src\input.cpp
 	<windows.h>
 	<stdio.h>
 	<stdlib.h>
@@ -302,4 +303,12 @@
 	"bitmap.h"
 	"input.h"
 	"dragon.h"
+
+1373309855 e:\ufrgs\repositorios\ludara\include\system.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<ctime>
+
+1373432869 e:\ufrgs\repositorios\ludara\include\objects.h
 

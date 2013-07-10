@@ -80,7 +80,7 @@ double yOffset = -1.3;
 float maxSpeed = 0.25f;
 
 float planeSize = 100.0f;
-
+    GLfloat posX, posY, posZ, lookX, lookY, lookZ;
 
 Dragon* myDragon;
 Input* baseInput;
@@ -209,6 +209,13 @@ void load_wall(void)
 
 void renderFloor() {
 
+    posX = myDragon->getPosX();
+    posY = myDragon->getPosY();
+    posZ = myDragon->getPosZ();
+    lookX = myDragon->getLookX();
+    lookY = myDragon->getLookY();
+    lookZ = myDragon->getLookZ();
+
 	// i want some nice, smooth, antialiased lines
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
@@ -223,6 +230,7 @@ void renderFloor() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor4f(0.4f,0.4f,0.4f,1.0f);
+
 
 	glPushMatrix();
 
@@ -254,7 +262,7 @@ void renderFloor() {
 		glVertex3f(-planeSize + i*(2*planeSize)/10.0f, 0.0f, planeSize);
 	}
 	glEnd();
-
+    myDragon->draw();
 	glPopMatrix();
 }
 

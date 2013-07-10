@@ -217,3 +217,7 @@ pip-log.txt
 ### Executable files
 bin/
 *.exe
+
+##CodeBlocks files
+*.depend
+*.layout
