@@ -117,6 +117,7 @@ void Dragon::flyDown()
 
 void Dragon::draw()
 {
+    this->collisionRange = 2.5f;
 //    glPushMatrix();
  //       glColor3f(1.0, 1.0, 1.0);
  //       glTranslatef(1.0f,1.0f,1.0f);

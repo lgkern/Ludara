@@ -1,13 +1,14 @@
 #ifndef __OBJECTS__
 #define __OBJECTS__
 
+#define COLLISION_RANGE
 
 class Object
 {
     GLfloat posX, posY, posZ;
-    GLfloat sizeX, sizeY, sizeZ;
+    GLfloat collisionRange;
 public:
-    bool checkColosion(GLfloat posX,GLfloat posY,GLfloat posZ, GLfloat sizeX,GLfloat sizeY,GLfloat sizeZ);
+    bool checkCollision(GLfloat posX,GLfloat posY,GLfloat posZ, GLfloat collisionRange);
 
 };
 

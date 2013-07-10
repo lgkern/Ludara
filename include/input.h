@@ -5,8 +5,11 @@
 
 #include "dragon.h"
 
+using namespace std;
+
 class Input
 {
+    vector<Object> scenario;
     Dragon* currentDragon;
     int mouseCurrentX = 0;
     int mouseCurrentY = 0;
@@ -38,6 +41,8 @@ public:
     void mouseControl();
     void updateState();
     void drawElements();
+    void addElement(Object* element);
+    bool checkCollision(GLfloat posX,GLfloat posY,GLfloat posZ, GLfloat collisionRange);
 private:
 };
 
